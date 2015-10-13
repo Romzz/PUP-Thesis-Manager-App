@@ -79,7 +79,7 @@ class ImportHandler(webapp2.RequestHandler):
         file = open(os.path.join(os.path.dirname(__file__), 'PUP COE Thesis List.csv'))
         fileReader = csv.reader(file)
 
-        department_key = ndb.Key(urlsafe='ah5kZXZ-cHVwLWRibXMtdGhlc2lzLW1hbmFnZXItMTlyFwsSCkRlcGFydG1lbnQiB0NPRV9QVVAM')
+        department_key = ndb.Key(urlsafe='ahxzfnB1cC1kYm1zLXRoZXNpcy1tYW5hZ2VyLTE5chcLEgpEZXBhcnRtZW50IgdDT0VfUFVQDA')
         department = department_key.get()
         college = department.college_key.get()
         university = college.university_key.get()
