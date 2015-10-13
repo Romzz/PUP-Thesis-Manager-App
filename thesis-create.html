@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Thesis</title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+  <!-- JQuery & JScript -->
+  <script type="text/javascript" src='/static/scripts/jquery-2.1.4.min.js' defer></script>
+  <script type="text/javascript" src='/static/bootstrap/js/bootstrap.min.js' defer></script>
+  <script type="text/javascript" src='/static/scripts/script-selections.js' defer></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home">Thesis Manager App</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/home">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="/thesis/create">Upload Thesis</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catalogue <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/thesis/list/all">Detailed List:</a></li>
+            <li><a href="/filter">Filter By:</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user }}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{ url }}">{{ url_linktext }}</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+  <h2 class="">Upload your Thesis</h2>
+    <form class="form-horizontal" method="post">
+      <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Title:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="thesis_title" id="title" placeholder="Title">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="subtitle" class="col-sm-2 control-label">Subtitle:</label>
+        <div class="col-sm-10">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" name="thesis_subtitle" id="subtitle" placeholder="Subtitle">
+                </div>
+                <label for="department" class="col-sm-2 control-label">Department:</label>
+                <div class="col-sm-4">
+                    <select id="department" name="thesis_department" class="department form-control">
+
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <span class="col-md-2 control-label"></span>
+        <div class="col-md-10">
+            <div class="form-group row">
+                <label for="adviser" class="col-md-1 control-label">Adviser:</label>
+                <div class="col-md-3">
+                    <!-- <input type="text" name="thesis_adviser" class="form-control" id="adviser" placeholder="Adviser"> -->
+                    <select id="thesis_adviser" name="thesis_adviser" class="adviser form-control">
+
+                    </select>
+                </div>
+
+                <label for="year" class="col-md-1 control-label">Year:</label>
+                <div class="col-md-2">
+                    <!-- <input type="text" name="thesis_year" class="form-control" id="year" placeholder="Year"> -->
+                    <select id="thesis_year" name="thesis_year" class="form-control">
+                        <option value="2011">Year 2011</option>
+                        <option value="2012">Year 2012</option>
+                        <option value="2013">Year 2013</option>
+                        <option value="2014">Year 2014</option>
+                        <option value="2015">Year 2015</option>
+                    </select>
+                </div>
+
+                <label for="section" class="col-md-1 control-label">Section:</label>
+                <div class="col-md-3">
+                    <select id="section" name="thesis_section" class="form-control">
+                        <option value="1">Section 1</option>
+                        <option value="2">Section 2</option>
+                        <option value="3">Section 3</option>
+                        <option value="4">Section 4</option>
+                        <option value="5">Section 5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="abstract" class="col-sm-2 control-label">Abstract:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="thesis_abstract" id="abstract" rows="3" style="width: 943px; height: 85px;"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+          <span class="col-sm-2 control-label"></span>
+          <div class="col-sm-10">
+              <div class="form-group row">
+                  <div class="col-sm-2">
+                      <input type="text" name="thesis_member1" class="form-control" placeholder="Member1">
+                  </div>
+                  <div class="col-sm-2">
+                      <input type="text" name="thesis_member2" class="form-control" placeholder="Member2">
+                  </div>
+                  <div class="col-sm-2">
+                      <input type="text" name="thesis_member3" class="form-control" placeholder="Member3">
+                  </div>
+                  <div class="col-sm-2">
+                      <input type="text" name="thesis_member4" class="form-control" placeholder="Member4">
+                  </div>
+                  <div class="col-sm-2">
+                      <input type="text" name="thesis_member5" class="form-control" placeholder="Member5">
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="tags" class="col-sm-2 control-label">Tags:</label>
+          <div class="col-sm-10">
+              <input type="text" name="thesis_tags" class="form-control" id="tags" placeholder="tags">
+          </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+    </form>
+</div>
+
+</body>
+</html>
